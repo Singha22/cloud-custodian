@@ -198,6 +198,7 @@ ResourceMap = {
   "aws.qldb": "c7n.resources.qldb.QLDB",
   "aws.quicksight-group": "c7n.resources.quicksight.QuicksightGroup",
   "aws.quicksight-user": "c7n.resources.quicksight.QuicksightUser",
+  "aws.ram": "c7n.resources.ram.RAM",
   "aws.r53domain": "c7n.resources.route53.Route53Domain",
   "aws.rds": "c7n.resources.rds.RDS",
   "aws.rds-cluster": "c7n.resources.rdscluster.RDSCluster",
