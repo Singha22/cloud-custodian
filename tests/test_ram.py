@@ -5,10 +5,25 @@ from .common import BaseTest
 
 class RAMTest(BaseTest):
 
-    def test_ram_tag(self):
-        session_factory = self.replay_flight_data('test_pinpoint_app_tag')
+    def test_ram_tag_resource(self):
+        factory = self.replay_flight_data('test_ram_tag_resource')
+        p = self.load_policy({
+            'name': 'ram-tag',
+            'resource': 'ram',
+            'filters': [{'tag:Env': 'Dev'}],
+        }, session_factory=factory)
+        resources = p.run()
+        self.assertEqual(len(resources), 0)
 
+    def test_ram_untag_resource(self):
+        factory = self.replay_flight_data('test_ram_untag_resource')
+        p = self.load_policy({
+            'name': 'ram-remove-tag',
+            'resource': 'ram',
+            'filters': [{'tag:Env': 'Dev'}],
+            'actions': ['remove-tag'],
+        }, session_factory=factory)
+        resources = p.run()
+        print("resources", resources)
 
-    def test_ram_remove_tag(self):
-        session_factory = self.replay_flight_data('test_pinpoint_app_remove_tag')
-
+        self.assertEqual(len(resources), 1)

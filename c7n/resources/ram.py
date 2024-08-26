@@ -12,12 +12,13 @@ class GetResourceShare(DescribeSource):
 class RAM(QueryResourceManager):
     class resource_type(TypeInfo):
         service = 'ram'
+        filter_name = 'resourceShareArns'
+        filter_type = list
         arn_type = 'resource-share'
-        id = 'resourceShareArns'
-        date = 'creationTime'
-        enum_spec = ('get_resource_shares', 'resourceShares', None)
-        name = 'name'
+        id = name = 'resourceShareArns'
+        enum_spec = ('get_resource_shares', 'resourceShareArns', {"resourceOwner": "SELF"})
         permissions = 'ram:GetResourceShares'
+        universal_taggable = object()
 
     source_mapping = {
         'describe': GetResourceShare
