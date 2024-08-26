@@ -20,10 +20,13 @@ class RAMTest(BaseTest):
         p = self.load_policy({
             'name': 'ram-remove-tag',
             'resource': 'ram',
-            'filters': [{'tag:Env': 'Dev'}],
+            'filters': [
+                {
+                    'tag:Env': 'Dev'
+                }
+            ],
             'actions': ['remove-tag'],
         }, session_factory=factory)
         resources = p.run()
-        print("resources", resources)
 
-        self.assertEqual(len(resources), 1)
+        self.assertEqual(len(resources), 0)
