@@ -6,14 +6,19 @@ from .common import BaseTest
 class RAMTest(BaseTest):
 
     def test_ram_tag_resource(self):
-        factory = self.replay_flight_data('test_ram_tag_resource')
+        factory = self.replay_flight_data('test_ram_tags')
         p = self.load_policy({
-            'name': 'ram-tag',
+            'name': 'ram-tags',
             'resource': 'ram',
-            'filters': [{'tag:Env': 'Dev'}],
+            'filters': [
+                {
+                    'tag:Category': 'absent'
+                }
+            ],
+
         }, session_factory=factory)
         resources = p.run()
-        self.assertEqual(len(resources), 0)
+        self.assertEqual(len(resources), 1)
 
     def test_ram_untag_resource(self):
         factory = self.replay_flight_data('test_ram_untag_resource')
@@ -22,11 +27,11 @@ class RAMTest(BaseTest):
             'resource': 'ram',
             'filters': [
                 {
-                    'tag:Env': 'Dev'
+                    'tag:Category': 'absent'
                 }
             ],
             'actions': ['remove-tag'],
         }, session_factory=factory)
         resources = p.run()
 
-        self.assertEqual(len(resources), 0)
+        self.assertEqual(len(resources), 1)
