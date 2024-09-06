@@ -66,7 +66,7 @@ class RemoveTagRAM(RemoveTag):
 
     .. code-block:: yaml
         policies:
-            - name: ram-tag
+            - name: ram-untag
               resource: aws.ram
               actions:
                 - type: remove-tag
