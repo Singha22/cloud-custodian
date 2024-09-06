@@ -4,36 +4,36 @@
         "ResponseMetadata": {},
         "resourceShares": [
             {
-                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/147ffb81-9b6e-40e8-b2c3-485fc529644a",
-                "name": "aman-test-resource-share",
+                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/23d843bb-2821-4817-a03e-9d86e47d9b09",
+                "name": "resource-share-test",
                 "owningAccountId": "644160558196",
                 "allowExternalPrincipals": true,
                 "status": "ACTIVE",
                 "tags": [
                     {
-                        "key": "Category",
-                        "value": "absent"
+                        "key": "owner",
+                        "value": "policy"
                     }
                 ],
                 "creationTime": {
                     "__class__": "datetime",
                     "year": 2024,
                     "month": 9,
-                    "day": 5,
+                    "day": 6,
                     "hour": 9,
-                    "minute": 59,
-                    "second": 50,
-                    "microsecond": 275000
+                    "minute": 52,
+                    "second": 47,
+                    "microsecond": 150000
                 },
                 "lastUpdatedTime": {
                     "__class__": "datetime",
                     "year": 2024,
                     "month": 9,
-                    "day": 5,
-                    "hour": 14,
-                    "minute": 21,
-                    "second": 5,
-                    "microsecond": 817000
+                    "day": 6,
+                    "hour": 9,
+                    "minute": 52,
+                    "second": 47,
+                    "microsecond": 150000
                 },
                 "featureSet": "STANDARD"
             }

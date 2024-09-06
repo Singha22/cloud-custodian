@@ -2,7 +2,7 @@ from c7n.actions import ActionRegistry
 from c7n.filters import FilterRegistry
 from c7n.manager import resources
 from c7n.query import QueryResourceManager, TypeInfo, DescribeSource
-from c7n.tags import universal_augment
+from c7n.tags import universal_augment, Tag, RemoveTag
 
 
 class GetResourceShare(DescribeSource):
@@ -32,3 +32,49 @@ class RAM(QueryResourceManager):
 
     filter_registry = filters
     action_registry = actions
+
+
+@RAM.action_registry.register('tag')
+class TagRAM(Tag):
+    """Create tags on the RAM
+
+    :example:
+
+    .. code-block:: yaml
+
+        policies:
+            - name: ram-tag
+              resource: aws.ram
+              actions:
+                - type: tag
+                  key: test
+                  value: something
+    """
+    permissions = 'ram:TagResource'
+
+    def process_resource_set(self, client, resources, new_tags):
+        tags = [{'key': item['Key'], 'value': item['Value']} for item in new_tags]
+        for r in resources:
+            client.tag_resource(resourceShareArn=r["resourceShareArn"], tags=tags)
+
+
+@RAM.action_registry.register('remove-tag')
+class RemoveTagRAM(RemoveTag):
+    """Create tags on the RAM
+
+    :example:
+
+    .. code-block:: yaml
+        policies:
+            - name: ram-tag
+              resource: aws.ram
+              actions:
+                - type: tag
+                  key: test
+                  value: something
+    """
+    permissions = 'ram:UntagResource'
+
+    def process_resource_set(self, client, resources, tags):
+        for r in resources:
+            client.untag_resource(resourceShareArn=r["resourceShareArn"], tagKeys=tags)

@@ -4,11 +4,11 @@
         "PaginationToken": "",
         "ResourceTagMappingList": [
             {
-                "ResourceARN": "arn:aws:ram:us-east-1:644160558196:resource-share/147ffb81-9b6e-40e8-b2c3-485fc529644a",
+                "ResourceARN": "arn:aws:ram:us-east-1:644160558196:resource-share/23d843bb-2821-4817-a03e-9d86e47d9b09",
                 "Tags": [
                     {
-                        "Key": "Category",
-                        "Value": "absent"
+                        "Key": "owner",
+                        "Value": "policy"
                     }
                 ]
             }
