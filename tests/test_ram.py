@@ -6,7 +6,7 @@ from .common import BaseTest
 class RAMTest(BaseTest):
 
     def test_ram_tag_untag_resource(self):
-        factory = self.record_flight_data('test_ram_tags')
+        factory = self.replay_flight_data('test_ram_tags')
         p = self.load_policy({
             'name': 'ram-tags',
             'resource': 'ram',
@@ -31,5 +31,8 @@ class RAMTest(BaseTest):
 
         }, session_factory=factory)
         resources = p.run()
-        print("resources", resources)
         self.assertEqual(len(resources), 1)
+        client = factory().client('ram')
+        tags = client.get_resource_shares(resourceOwner="SELF")["resourceShares"][0]["tags"]
+        self.assertEqual(len(tags), 1)
+        self.assertEqual(tags, [{'key': 'resource', 'value': 'agent'}])
