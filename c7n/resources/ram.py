@@ -50,7 +50,7 @@ class TagRAM(Tag):
                   key: test
                   value: something
     """
-    permissions = 'ram:TagResource'
+    permissions = ('ram:TagResource', 'ram:GetResourceShares')
 
     def process_resource_set(self, client, resources, new_tags):
         tags = [{'key': item['Key'], 'value': item['Value']} for item in new_tags]
@@ -73,7 +73,7 @@ class RemoveTagRAM(RemoveTag):
                   key: test
                   value: something
     """
-    permissions = 'ram:UntagResource'
+    permissions = ('ram:UntagResource', 'ram:GetResourceShares')
 
     def process_resource_set(self, client, resources, tags):
         for r in resources:
