@@ -70,8 +70,7 @@ class RemoveTagRAM(RemoveTag):
               resource: aws.ram
               actions:
                 - type: remove-tag
-                  key: test
-                  value: something
+                  tags: ["tag-key"]
     """
     permissions = ('ram:UntagResource', 'ram:GetResourceShares')
 
