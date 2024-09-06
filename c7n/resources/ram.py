@@ -36,7 +36,7 @@ class RAM(QueryResourceManager):
 
 @RAM.action_registry.register('tag')
 class TagRAM(Tag):
-    """Create tags on the RAM
+    """Create tags on the Resource Access Manager (RAM)
 
     :example:
 
