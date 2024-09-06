@@ -36,7 +36,7 @@ class RAM(QueryResourceManager):
 
 @RAM.action_registry.register('tag')
 class TagRAM(Tag):
-    """Create tags on the RAM
+    """Creates tags on the RAM
 
     :example:
 
@@ -60,7 +60,7 @@ class TagRAM(Tag):
 
 @RAM.action_registry.register('remove-tag')
 class RemoveTagRAM(RemoveTag):
-    """Create tags on the RAM
+    """Removes tags on the RAM
 
     :example:
 
@@ -69,7 +69,7 @@ class RemoveTagRAM(RemoveTag):
             - name: ram-tag
               resource: aws.ram
               actions:
-                - type: tag
+                - type: remove-tag
                   key: test
                   value: something
     """
