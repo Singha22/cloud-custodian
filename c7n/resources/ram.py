@@ -1,5 +1,3 @@
-from c7n.actions import ActionRegistry
-from c7n.filters import FilterRegistry
 from c7n.manager import resources
 from c7n.query import QueryResourceManager, TypeInfo, DescribeSource
 from c7n.tags import universal_augment
@@ -10,25 +8,18 @@ class GetResourceShare(DescribeSource):
         return universal_augment(self.manager, super().augment(resources))
 
 
-filters = FilterRegistry('ram.filters')
-actions = ActionRegistry('ram.actions')
-
-
-@resources.register('ram')
-class RAM(QueryResourceManager):
+@resources.register('ram-resource-share')
+class RAMResourceShare(QueryResourceManager):
     class resource_type(TypeInfo):
         service = 'ram'
-        filter_name = 'resourceShareArns'
+        enum_spec = ('get_resource_shares', 'resourceShares', {"resourceOwner": "SELF"})
         filter_type = list
+        filter_name = 'resourceShareArns'
         arn_type = 'resource-share'
         id = name = 'resourceShareArn'
-        enum_spec = ('get_resource_shares', 'resourceShares', {"resourceOwner": "SELF"})
         permissions = 'ram:GetResourceShares'
-        universal_taggable = True
+        universal_taggable = object()
 
     source_mapping = {
         'describe': GetResourceShare
     }
-
-    filter_registry = filters
-    action_registry = actions

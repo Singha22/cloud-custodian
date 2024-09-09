@@ -4,8 +4,8 @@
         "ResponseMetadata": {},
         "resourceShares": [
             {
-                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/23d843bb-2821-4817-a03e-9d86e47d9b09",
-                "name": "resource-share-test",
+                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/f8f34086-ed3b-4cfd-a5dc-94bd2e594de3",
+                "name": "test-ram",
                 "owningAccountId": "644160558196",
                 "allowExternalPrincipals": true,
                 "status": "ACTIVE",
@@ -19,21 +19,21 @@
                     "__class__": "datetime",
                     "year": 2024,
                     "month": 9,
-                    "day": 6,
-                    "hour": 9,
-                    "minute": 52,
-                    "second": 47,
-                    "microsecond": 150000
+                    "day": 9,
+                    "hour": 10,
+                    "minute": 1,
+                    "second": 9,
+                    "microsecond": 980000
                 },
                 "lastUpdatedTime": {
                     "__class__": "datetime",
                     "year": 2024,
                     "month": 9,
-                    "day": 6,
-                    "hour": 9,
-                    "minute": 52,
-                    "second": 47,
-                    "microsecond": 150000
+                    "day": 9,
+                    "hour": 10,
+                    "minute": 1,
+                    "second": 9,
+                    "microsecond": 980000
                 },
                 "featureSet": "STANDARD"
             }
