@@ -41,7 +41,6 @@ class DeleteResourceShare(BaseAction):
             resource: ram-resource-share
             actions:
               - type: delete
-                resourceShareArn: arn:aws:ram:us-east-1:{accountId}:resource-share/{uuid}
     """
 
     schema = type_schema('delete')
