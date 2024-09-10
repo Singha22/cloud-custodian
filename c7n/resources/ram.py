@@ -5,10 +5,10 @@ from c7n.tags import universal_augment
 from c7n.utils import type_schema, local_session
 
 
-class GetResourceShare(DescribeSource):
-    def augment(self, resources):
-        return universal_augment(self.manager, super().augment(resources))
-
+# class GetResourceShare(DescribeSource):
+#     def augment(self, resources):
+#         return universal_augment(self.manager, super().augment(resources))
+#
 
 @resources.register('ram-resource-share')
 class RAMResourceShare(QueryResourceManager):
@@ -22,9 +22,7 @@ class RAMResourceShare(QueryResourceManager):
         permissions = 'ram:GetResourceShares'
         universal_taggable = object()
 
-    source_mapping = {
-        'describe': GetResourceShare
-    }
+    augment = universal_augment
 
 
 @RAMResourceShare.action_registry.register('delete')
