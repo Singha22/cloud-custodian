@@ -32,10 +32,8 @@ class RAMTest(BaseTest):
 
         }, session_factory=session_factory)
         resources = p.run()
-        print("resoruces", resources)
         self.assertEqual(len(resources), 1)
         tags = client.get_resource_shares(resourceOwner="SELF")["resourceShares"][0]["tags"]
-        print("tags", tags)
         self.assertEqual(len(tags), 1)
         self.assertEqual(tags, [{'key': 'resource', 'value': 'agent'}])
 
