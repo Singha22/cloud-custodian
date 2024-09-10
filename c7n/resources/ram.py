@@ -23,7 +23,7 @@ class RAMResourceShare(QueryResourceManager):
 @RAMResourceShare.action_registry.register('delete')
 class DeleteResourceShare(BaseAction):
     """
-    Deletes an AWS RAM resource share based on certain filter criteria.
+    Deletes an AWS RAM Resource Share based on RAM ARN
 
     :example:
 
