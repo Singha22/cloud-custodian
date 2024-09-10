@@ -1,0 +1,18 @@
+{
+    "status_code": 200,
+    "data": {
+        "PaginationToken": "",
+        "ResourceTagMappingList": [
+            {
+                "ResourceARN": "arn:aws:ram:us-east-1:644160558196:resource-share/4c1610ef-0a5b-435c-8439-0bbf91f5aa0d",
+                "Tags": [
+                    {
+                        "Key": "owner",
+                        "Value": "policy"
+                    }
+                ]
+            }
+        ],
+        "ResponseMetadata": {}
+    }
+}

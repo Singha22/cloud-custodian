@@ -1,0 +1,42 @@
+{
+    "status_code": 200,
+    "data": {
+        "ResponseMetadata": {},
+        "resourceShares": [
+            {
+                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/4c1610ef-0a5b-435c-8439-0bbf91f5aa0d",
+                "name": "ram-test",
+                "owningAccountId": "644160558196",
+                "allowExternalPrincipals": true,
+                "status": "ACTIVE",
+                "tags": [
+                    {
+                        "key": "owner",
+                        "value": "policy"
+                    }
+                ],
+                "creationTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 9,
+                    "day": 10,
+                    "hour": 9,
+                    "minute": 55,
+                    "second": 56,
+                    "microsecond": 425000
+                },
+                "lastUpdatedTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 9,
+                    "day": 10,
+                    "hour": 9,
+                    "minute": 55,
+                    "second": 56,
+                    "microsecond": 425000
+                },
+                "featureSet": "STANDARD"
+            }
+        ]
+    }
+}

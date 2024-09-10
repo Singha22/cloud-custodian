@@ -32,8 +32,32 @@ class RAMTest(BaseTest):
 
         }, session_factory=session_factory)
         resources = p.run()
-        print("resources are", resources)
         self.assertEqual(len(resources), 1)
         tags = client.get_resource_shares(resourceOwner="SELF")["resourceShares"][0]["tags"]
         self.assertEqual(len(tags), 1)
-        # self.assertEqual(tags, [{'key': 'resource', 'value': 'agent'}])
+        self.assertEqual(tags, [{'key': 'resource', 'value': 'agent'}])
+
+    def test_delete_ram_resource_share(self):
+        session_factory = self.replay_flight_data("test_delete_ram_resource_share")
+        p = self.load_policy(
+            {
+                "name": "ram-resource-share-delete",
+                "resource": "ram-resource-share",
+                "filters": [{"tag:owner": "policy"}],
+                "actions": [{
+                    "type": "delete",
+                }],
+            },
+            session_factory=session_factory,
+        )
+        resources = p.run()
+        self.assertEqual(1, len(resources))
+        client = session_factory().client('ram')
+        resource_shares = client.get_resource_shares(resourceOwner="SELF")['resourceShares']
+
+        for resource in resource_shares:
+            if resource['resourceShareArn'] == resources[0]['resourceShareArn']:
+                self.assertEqual(resource['status'], 'DELETED')
+                break
+        else:
+            self.fail(f"Resource share {resources[0]['resourceShareArn']} failed")
