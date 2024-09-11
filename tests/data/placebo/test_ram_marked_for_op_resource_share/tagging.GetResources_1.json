@@ -1,0 +1,22 @@
+{
+    "status_code": 200,
+    "data": {
+        "PaginationToken": "",
+        "ResourceTagMappingList": [
+            {
+                "ResourceARN": "arn:aws:ram:us-east-1:644160558196:resource-share/e4e33397-7989-4ed6-b749-5a23e445df33",
+                "Tags": [
+                    {
+                        "Key": "owner",
+                        "Value": "policy"
+                    },
+                    {
+                        "Key": "custodian_cleanup",
+                        "Value": "Resource does not meet policy: delete@2024/09/10"
+                    }
+                ]
+            }
+        ],
+        "ResponseMetadata": {}
+    }
+}
