@@ -127,7 +127,6 @@ class RAMTest(BaseTest):
         for resource in resource_shares:
             if resource['resourceShareArn'] == resources[0]['resourceShareArn']:
                 self.assertEqual(resource['status'], 'DELETED')
-                print("deleted", resource)
                 break
         else:
             self.fail(f"Resource share {resources[0]['resourceShareArn']} "
