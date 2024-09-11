@@ -1,0 +1,70 @@
+{
+    "status_code": 200,
+    "data": {
+        "ResponseMetadata": {},
+        "resourceShares": [
+            {
+                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/e4e33397-7989-4ed6-b749-5a23e445df33",
+                "name": "test_ram_op",
+                "owningAccountId": "644160558196",
+                "allowExternalPrincipals": true,
+                "status": "ACTIVE",
+                "tags": [
+                    {
+                        "key": "owner",
+                        "value": "policy"
+                    }
+                ],
+                "creationTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 9,
+                    "day": 11,
+                    "hour": 10,
+                    "minute": 44,
+                    "second": 18,
+                    "microsecond": 826000
+                },
+                "lastUpdatedTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 9,
+                    "day": 11,
+                    "hour": 10,
+                    "minute": 44,
+                    "second": 18,
+                    "microsecond": 826000
+                },
+                "featureSet": "STANDARD"
+            },
+            {
+                "resourceShareArn": "arn:aws:ram:us-east-1:644160558196:resource-share/ebd04c20-b7f1-4b81-9940-557cc9f35d5c",
+                "name": "Resource Share From Policy Created by RAM",
+                "owningAccountId": "644160558196",
+                "allowExternalPrincipals": true,
+                "status": "ACTIVE",
+                "creationTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 9,
+                    "day": 10,
+                    "hour": 21,
+                    "minute": 53,
+                    "second": 56,
+                    "microsecond": 217000
+                },
+                "lastUpdatedTime": {
+                    "__class__": "datetime",
+                    "year": 2024,
+                    "month": 9,
+                    "day": 10,
+                    "hour": 21,
+                    "minute": 53,
+                    "second": 56,
+                    "microsecond": 217000
+                },
+                "featureSet": "CREATED_FROM_POLICY"
+            }
+        ]
+    }
+}
